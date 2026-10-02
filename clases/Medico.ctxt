@@ -1,0 +1,17 @@
+#BlueJ class context
+#Fri Oct 02 11:38:47 ART 2026
+comment0.target=Medico
+comment1.params=codMedico nombre apellido matricula dni email nroTelefonico
+comment1.target=Medico(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)
+comment10.target=java.util.ArrayList getEspecialidades()
+comment2.params=horario
+comment2.target=void addHorario(FranjaHoraria)
+comment3.params=especialidad
+comment3.target=void addEspecialidad(Especialidad)
+comment4.target=java.lang.String getNombre()
+comment5.target=java.lang.String getApellido()
+comment6.target=java.lang.String getMatricula()
+comment7.target=java.lang.String getEmail()
+comment8.target=java.lang.String getNumeroTelefono()
+comment9.target=java.util.ArrayList getHorariosDisponibles()
+numComments=11

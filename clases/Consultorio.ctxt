@@ -1,0 +1,9 @@
+#BlueJ class context
+#Fri Oct 02 11:50:13 ART 2026
+comment0.target=Consultorio
+comment1.params=nroConsultorio
+comment1.target=Consultorio(int)
+comment2.params=servicio
+comment2.target=void addServicio(Servicio)
+comment3.target=java.util.ArrayList getServicios()
+numComments=4
