@@ -1,0 +1,15 @@
+#BlueJ class context
+#Sun Oct 04 20:12:16 ART 2026
+comment0.target=Turno
+comment1.params=codTurno paciente medico servicio consultorio horario estado fechaReserva
+comment1.target=Turno(int, Paciente, Medico, Servicio, Consultorio, FranjaHoraria, Estado, java.time.LocalDate)
+comment10.target=double getPrecio()
+comment2.target=int getCodTurno()
+comment3.target=Paciente getPaciente()
+comment4.target=Medico getMedico()
+comment5.target=Servicio getServicio()
+comment6.target=Consultorio getConsultorio()
+comment7.target=FranjaHoraria getHorario()
+comment8.target=Estado getEstado()
+comment9.target=int getCodEstado()
+numComments=11

@@ -1,0 +1,9 @@
+#BlueJ class context
+#Sun Oct 04 20:12:16 ART 2026
+comment0.target=Servicio
+comment1.params=codServicio nombreServicio especialidad
+comment1.target=Servicio(int, java.lang.String, Especialidad)
+comment2.target=java.lang.String getNombre()
+comment3.target=Especialidad getEspecialidad()
+comment4.target=double getPrecio()
+numComments=5

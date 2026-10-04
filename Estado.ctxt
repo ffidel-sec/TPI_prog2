@@ -1,0 +1,8 @@
+#BlueJ class context
+#Sun Oct 04 20:12:16 ART 2026
+comment0.target=Estado
+comment1.params=codEstado nombreEstado
+comment1.target=Estado(int, java.lang.String)
+comment2.target=int getCodEstado()
+comment3.target=java.lang.String getNombre()
+numComments=4
