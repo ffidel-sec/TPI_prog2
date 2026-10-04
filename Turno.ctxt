@@ -1,5 +1,5 @@
 #BlueJ class context
-#Sun Oct 04 20:12:16 ART 2026
+#Sun Oct 04 20:23:24 ART 2026
 comment0.target=Turno
 comment1.params=codTurno paciente medico servicio consultorio horario estado fechaReserva
 comment1.target=Turno(int, Paciente, Medico, Servicio, Consultorio, FranjaHoraria, Estado, java.time.LocalDate)

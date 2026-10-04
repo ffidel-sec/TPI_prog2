@@ -1,9 +1,0 @@
-#BlueJ class context
-#Fri Oct 02 11:50:03 ART 2026
-comment0.target=Paciente
-comment1.params=codPaciente nombre apellido dni
-comment1.target=Paciente(int, java.lang.String, java.lang.String, java.lang.String)
-comment2.target=java.lang.String getNombre()
-comment3.target=java.lang.String getApellido()
-comment4.target=java.lang.String getDni()
-numComments=5

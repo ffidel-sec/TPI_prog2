@@ -44,7 +44,37 @@ public class GestorTurnos
         
         return(medicosEspecialidad);
     }
-    
+    // OBTENER DISPONIBILIDAD MEDICO
+
+    // OBTENER HORARIOS OCUPADOS POR MEDICO
+    public ArrayList<FranjaHoraria> getHorariosOcupadosMedico(Medico medico){
+        ArrayList<FranjaHoraria> horarioOcupadoMedico = new ArrayList<>();
+
+        for (Turno t: listaTurnos){
+            if(t.getCodEstado() == 0 || t.getCodEstado() == 1 ){
+                if(t.getMedico().equals(medico)){
+                    horarioOcupadoMedico.add(t.getHorario());
+                }
+            }
+        }
+
+        return horarioOcupadoMedico;
+    }
+
+    // OBTENER HORARIOS DISPONIBLES (CON UNA SEMANA DE ANTICIPACION MAXIMA)
+
+    public ArrayList<FranjaHoraria> obtenerHorariosDisponibles(Medico medico){
+        ArrayList<FranjaHoraria> horariosDisponiblesMedico = new ArrayList<>();
+        ArrayList<FranjaHoraria> horariosOcupadoMedico = getHorariosOcupadosMedico(medico);
+
+        for (FranjaHoraria h: medico.getHorarios()){
+            if (!horariosOcupadoMedico.contains(h)){
+                horariosDisponiblesMedico.add(h);
+            }
+        }
+
+        return horariosDisponiblesMedico;
+    }
     // GET PRECIO
     
     public double getPrecio(Turno t){return t.getPrecio();}

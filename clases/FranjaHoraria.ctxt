@@ -1,6 +1,0 @@
-#BlueJ class context
-#Fri Oct 02 11:50:05 ART 2026
-comment0.target=FranjaHoraria
-comment1.params=codFranja dia horaInicio horaFin
-comment1.target=FranjaHoraria(int, java.time.DayOfWeek, java.time.LocalTime, java.time.LocalTime)
-numComments=2

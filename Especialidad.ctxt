@@ -1,5 +1,5 @@
 #BlueJ class context
-#Fri Oct 02 11:23:29 ART 2026
+#Sun Oct 04 20:23:24 ART 2026
 comment0.target=Especialidad
 comment1.params=codEspecialidad nombre
 comment1.target=Especialidad(int, java.lang.String)

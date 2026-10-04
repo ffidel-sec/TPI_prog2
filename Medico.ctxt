@@ -1,5 +1,5 @@
 #BlueJ class context
-#Sun Oct 04 19:28:26 ART 2026
+#Sun Oct 04 20:23:24 ART 2026
 comment0.target=Medico
 comment1.params=codMedico nombre apellido matricula dni email nroTelefonico especialidad
 comment1.target=Medico(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, Especialidad)
