@@ -1,10 +1,12 @@
-import java.util.ArrayList;
+package Models;
 
-public class Medico
+import java.util.ArrayList;
+import Controllers.Disponibilidad;
+
+public class Medico extends Persona implements Disponibilidad
 {
     private int codMedico;
-    private String nombre;
-    private String apellido;
+    private String nombreCompleto;
     private String matricula;
     private String dni;
     private String email;
@@ -15,21 +17,16 @@ public class Medico
     
     
     public Medico(int codMedico, 
-    String nombre, 
-    String apellido, 
+    String nombreCompleto, 
     String matricula,
     String dni,
     String email,
     String nroTelefonico,
-    Especialidad especialidad)
+    String nombreEspecialidad)
     {
+        super(nombreCompleto, dni, email, nroTelefonico);
         this.codMedico = codMedico;
-        this.nombre = nombre;
-        this.apellido = apellido;
         this.matricula = matricula;
-        this.dni = dni;
-        this.email = email;
-        this.nroTelefonico = nroTelefonico;
         horariosDisponibles = new ArrayList<>();
         this.especialidad = especialidad;
     }
@@ -39,11 +36,16 @@ public class Medico
     }
     
     
-    public String getNombre(){return nombre;}
-    public String getApellido() {return apellido;}
+    public String getNombre(){return nombreCompleto;}
     public String getMatricula() {return matricula;}
     public String getEmail() {return email;}
     public String getNumeroTelefono(){return nroTelefonico;}
     public ArrayList<FranjaHoraria> getHorarios(){return horariosDisponibles;}
     public Especialidad getEspecialidad(){return especialidad;}
+
+    public boolean isEspecialidad(Especialidad especialidad){
+        return this.especialidad.equals(especialidad);
+    }
+
+    public boolean isDisponible(){return true;}
 }

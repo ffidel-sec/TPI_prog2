@@ -1,3 +1,5 @@
+package Models;
+
 import java.time.LocalDate;
 
 public class Turno
@@ -38,7 +40,6 @@ public class Turno
     public Consultorio getConsultorio(){return consultorio;}
     public FranjaHoraria getHorario(){return horario;}
     public Estado getEstado(){return estado;}
-    public int getCodEstado(){return estado.getCodEstado();}
     public double getPrecio(){return servicio.getPrecio();}
     
     

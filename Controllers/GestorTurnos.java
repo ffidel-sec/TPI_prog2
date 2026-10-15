@@ -1,5 +1,8 @@
+package Controllers;
+
 import java.util.ArrayList;
 import java.util.List;
+import Models.*;
 
 public class GestorTurnos
 {
@@ -37,7 +40,7 @@ public class GestorTurnos
         ArrayList<Medico> medicosEspecialidad = new ArrayList<>();
         
         for (Medico m: listaMedicos){
-            if (m.getEspecialidad().equals(especialidad)){
+            if (m.isEspecialidad(especialidad)){
                 medicosEspecialidad.add(m);
             }
         }
@@ -47,34 +50,9 @@ public class GestorTurnos
     // OBTENER DISPONIBILIDAD MEDICO
 
     // OBTENER HORARIOS OCUPADOS POR MEDICO
-    public ArrayList<FranjaHoraria> getHorariosOcupadosMedico(Medico medico){
-        ArrayList<FranjaHoraria> horarioOcupadoMedico = new ArrayList<>();
 
-        for (Turno t: listaTurnos){
-            if(t.getCodEstado() == 0 || t.getCodEstado() == 1 ){
-                if(t.getMedico().equals(medico)){
-                    horarioOcupadoMedico.add(t.getHorario());
-                }
-            }
-        }
 
-        return horarioOcupadoMedico;
-    }
 
-    // OBTENER HORARIOS DISPONIBLES (CON UNA SEMANA DE ANTICIPACION MAXIMA)
-
-    public ArrayList<FranjaHoraria> obtenerHorariosDisponibles(Medico medico){
-        ArrayList<FranjaHoraria> horariosDisponiblesMedico = new ArrayList<>();
-        ArrayList<FranjaHoraria> horariosOcupadoMedico = getHorariosOcupadosMedico(medico);
-
-        for (FranjaHoraria h: medico.getHorarios()){
-            if (!horariosOcupadoMedico.contains(h)){
-                horariosDisponiblesMedico.add(h);
-            }
-        }
-
-        return horariosDisponiblesMedico;
-    }
     // GET PRECIO
     
     public double getPrecio(Turno t){return t.getPrecio();}
@@ -85,7 +63,7 @@ public class GestorTurnos
     
     public boolean verificarExistencia(int dni){
         for (Paciente p: listaPacientes){
-            if (p.getDni() == dni){
+            if (p.getDni().equals(dni)){
                 return true;
             }
         }

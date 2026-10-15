@@ -1,3 +1,5 @@
+package Models;
+
 public class Especialidad
 {
     
@@ -9,5 +11,9 @@ public class Especialidad
     {
         this.codEspecialidad = codEspecialidad;
         this.nombre = nombre;
+    }
+
+    public String getNombre(){
+        return nombre;
     }
 }

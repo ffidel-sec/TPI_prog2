@@ -1,6 +1,0 @@
-#BlueJ class context
-#Sun Oct 04 20:23:24 ART 2026
-comment0.target=Especialidad
-comment1.params=codEspecialidad nombre
-comment1.target=Especialidad(int, java.lang.String)
-numComments=2
