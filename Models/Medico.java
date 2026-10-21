@@ -1,5 +1,5 @@
 package Models;
-
+import Controllers.Validador;
 import java.util.ArrayList;
 import Controllers.Disponibilidad;
 
@@ -11,8 +11,8 @@ public class Medico extends Persona implements Disponibilidad
     private String dni;
     private String email;
     private String nroTelefonico;
-    private Consultorio consultorio;
-    private Especialidad especialidad;
+    private int consultorio;
+    private String nombreEspecialidad;
     private ArrayList<FranjaHoraria> horariosDisponibles;
     
     
@@ -28,7 +28,7 @@ public class Medico extends Persona implements Disponibilidad
         this.codMedico = codMedico;
         this.matricula = matricula;
         horariosDisponibles = new ArrayList<>();
-        this.especialidad = especialidad;
+        this.especialidad = validador.obtenerEspecialidadPorNombre(nombreEspecialidad);
     }
     
     public void addHorario(FranjaHoraria horario){
