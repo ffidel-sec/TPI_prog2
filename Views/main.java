@@ -42,29 +42,7 @@ public class main {
         
 
         // MEDICO
-        System.out.print("=================MEDICO===============================\n");
-        System.out.print("Ingresar codigo: ");
-        int codigo = scanner.nextInt();
-        scanner.nextLine();
 
-        System.out.print("Ingrese su nombre completo: ");
-        String nombreCompleto = scanner.nextLine();
-
-        System.out.print("Ingrese su matricula: ");
-        String matricula = scanner.nextLine();
-
-        System.out.print("Ingrese su DNI: ");
-        String dni = scanner.nextLine();
-
-        System.out.print("Ingrese su email: ");
-        String email = scanner.nextLine();
-
-        System.out.print("Ingrese su numero telefonico: ");
-        String nroTelefonico = scanner.nextLine();
-
-        System.out.print("Ingresar Especialidad: ");
-        String nombreEspecialidad = scanner.nextLine();
-        
         if(Validador.verificarEspecialidad(nombreEspecialidad)){
             Medico m = new Medico(codigo, nombreCompleto, matricula, dni, email, nroTelefonico, nombreEspecialidad);
             System.out.println("ADENTRO DEL IF");
