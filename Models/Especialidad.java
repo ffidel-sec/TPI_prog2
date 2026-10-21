@@ -4,16 +4,16 @@ public class Especialidad
 {
     
     private int codEspecialidad;
-    private String nombre;
+    private String nombreEspecialidad;
 
     
-    public Especialidad(int codEspecialidad, String nombre)
+    public Especialidad(int codEspecialidad, String nombreEspecialidad)
     {
         this.codEspecialidad = codEspecialidad;
-        this.nombre = nombre;
+        this.nombreEspecialidad = nombreEspecialidad;
     }
 
     public String getNombre(){
-        return nombre;
+        return nombreEspecialidad;
     }
 }

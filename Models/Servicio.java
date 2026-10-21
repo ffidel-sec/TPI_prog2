@@ -9,11 +9,12 @@ public class Servicio
     private Especialidad especialidad;
     private double precio;
 
-    public Servicio(int codServicio, String nombreServicio, Especialidad especialidad)
+    public Servicio(int codServicio, String nombreServicio, Especialidad especialidad, double precio)
     {
-       this.codServicio = codServicio;
-       this.nombreServicio = nombreServicio;
-       this.especialidad = especialidad;
+        this.codServicio = codServicio;
+        this.nombreServicio = nombreServicio;
+        this.especialidad = especialidad;
+        this.precio = precio;
     }
     
     public String getNombre(){return nombreServicio;}
