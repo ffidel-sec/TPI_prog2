@@ -36,7 +36,15 @@ public class main {
 
         List<Object> medico = vistaMedico.pedirDatosMedicos();
 
-        boolean registroExitoso = gestorMedico.registrarMedico(medico);
-        System.out.println("Registro exitoso: " + registroExitoso);
+        boolean registroExitosoMedico = gestorMedico.registrarMedico(medico);
+        System.out.println("Registro exitoso: " + registroExitosoMedico);
+
+        //PACIENTE
+        VistaPaciente vistaPaciente = new VistaPaciente(scanner);
+        GestorPaciente gestorPaciente = new GestorPaciente();
+
+        List<Object> paciente = vistaPaciente.pedirDatosPaciente();
+        boolean registroExitosoPaciente = gestorPaciente.registrarPaciente(paciente);
+        System.out.println("Registro exitoso: " + registroExitosoPaciente);
     }
 }
