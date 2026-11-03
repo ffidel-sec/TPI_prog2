@@ -12,13 +12,12 @@ public class GestorServicio {
 
     private List<Servicio> listaServicios = new ArrayList<>();
     public boolean registrarServicio(List<Object> servicio){
-        int codServicio = (int) servicio.get(0);
-        String nombreServicio = (String) servicio.get(1);
-        String nombreEspecialidad = (String) servicio.get(2);
-        double precio = (double) servicio.get(3);
+        String nombreServicio = (String) servicio.get(0);
+        String nombreEspecialidad = (String) servicio.get(1);
+        double precio = (double) servicio.get(2);
 
         if(gestorEspecialidad.verificarEspecialidad(nombreEspecialidad)){
-            Servicio s = new Servicio(codServicio, nombreServicio, gestorEspecialidad.obtenerEspecialidadPorNombre(nombreEspecialidad), precio);
+            Servicio s = new Servicio(nombreServicio, gestorEspecialidad.obtenerEspecialidadPorNombre(nombreEspecialidad), precio);
             listaServicios.add(s);
             return true;
         }

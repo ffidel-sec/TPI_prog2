@@ -2,20 +2,21 @@ package Models;
 
 public class Paciente extends Persona
 {
-    private int codPaciente;
     private String nombreCompleto;
     private String dni;
     
-    public Paciente(int codPaciente,
+    public Paciente(
     String nombreCompleto,
     String email,
     String nroTelefonico,
     String dni)
+    
     {
         super(nombreCompleto, dni, email, nroTelefonico);
-        this.codPaciente = codPaciente;
     }
-    
-    public String getNombre(){return nombreCompleto;}
+
+    public String getNombreCompleto(){return nombreCompleto;}
+    public String getEmail(){return email;}
+    public String getNroTelefonico(){return nroTelefonico;}
     public String getDni(){return dni;}
 }

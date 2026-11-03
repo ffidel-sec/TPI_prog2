@@ -14,11 +14,6 @@ public class VistaPaciente {
 
     public List<Object> pedirDatosPaciente(){
         System.out.print("=================PACIENTE========================\n");
-        System.out.print("Ingresar codigo de paciente: ");
-        int codPaciente = scanner.nextInt();
-        scanner.nextLine();
-        paciente.add(codPaciente);
-
         System.out.print("Ingrese el nombre completo del paciente: ");
         String nombreCompleto = scanner.nextLine();
         paciente.add(nombreCompleto);

@@ -14,10 +14,6 @@ public class VistaServicio {
 
     public List<Object> pedirDatosServicio() {
         System.out.print("==================SERVICIO==============================\n");
-        System.out.print("Ingresar codigo de servicio: ");
-        int codServicio = scanner.nextInt();
-        scanner.nextLine();
-        servicio.add(codServicio);
 
         System.out.print("Ingresar nombre del servicio: ");
         String nombreServicio = scanner.nextLine();

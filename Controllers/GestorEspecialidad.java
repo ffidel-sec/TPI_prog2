@@ -1,20 +1,31 @@
 package Controllers;
 
 import Models.Especialidad;
+import DAOs.EspecialidadDAO;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.SQLException;
 
 public class GestorEspecialidad {
     private List<Especialidad> listaEspecialidades = new ArrayList<>();
-    public boolean registrarEspecialidad(List<Object> especialidad){
-        int codEspecialidad = (int) especialidad.get(0);
-        String nombreEspecialidad = (String) especialidad.get(1);
+    private final EspecialidadDAO dao = new EspecialidadDAO();
 
-        Especialidad e = new Especialidad(codEspecialidad, nombreEspecialidad);
-        listaEspecialidades.add(e);
+    public boolean registrarEspecialidad(List<Object> especialidad) throws SQLException{
+        String nombreEspecialidad = (String) especialidad.get(0);
+
+        Especialidad e = new Especialidad(nombreEspecialidad);
+        dao.registrar(e);
+        getListaEspecialidades();
         return true;
     }
     
+    public List<Especialidad> getListaEspecialidades() throws SQLException{
+        private List<Especialidad> listaEspecialidades = new ArrayList<>();
+        listaEspecialidades = dao.listarEspecialidades();
+        
+        return listaEspecialidades;
+    }
+
     
     public boolean verificarEspecialidad(String nombreEspecialidad){
         for (Especialidad e: listaEspecialidades){

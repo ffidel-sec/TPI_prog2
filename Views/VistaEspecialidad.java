@@ -14,11 +14,6 @@ public class VistaEspecialidad {
 
     public List<Object> pedirDatosEspecialidad() {
         System.out.print("==================ESPECIALIDAD==============================\n");
-        System.out.print("Ingresar codigo de especialidad: ");
-        int codigoEspecialidad = scanner.nextInt();
-        scanner.nextLine();
-        especialidad.add(codigoEspecialidad);
-
         System.out.print("Ingresar nombre de la especialidad: ");
         String nombreInstanciaEspecialidad = scanner.nextLine();
         especialidad.add(nombreInstanciaEspecialidad);

@@ -4,14 +4,12 @@ import java.util.ArrayList;
 
 public class Servicio
 {
-    private int codServicio;
     private String nombreServicio;
     private Especialidad especialidad;
     private double precio;
 
-    public Servicio(int codServicio, String nombreServicio, Especialidad especialidad, double precio)
+    public Servicio(String nombreServicio, Especialidad especialidad, double precio)
     {
-        this.codServicio = codServicio;
         this.nombreServicio = nombreServicio;
         this.especialidad = especialidad;
         this.precio = precio;

@@ -2,18 +2,21 @@ package Models;
 
 public class Especialidad
 {
-    
-    private int codEspecialidad;
+    private int id;
     private String nombreEspecialidad;
 
     
-    public Especialidad(int codEspecialidad, String nombreEspecialidad)
+    public Especialidad(String nombreEspecialidad)
     {
-        this.codEspecialidad = codEspecialidad;
         this.nombreEspecialidad = nombreEspecialidad;
     }
 
-    public String getNombre(){
-        return nombreEspecialidad;
-    }
+    // GETTERS
+    public String getNombre(){return nombreEspecialidad;}
+    public int getId(){return id;}
+
+    // SETTERS
+    public void setId(int id) {this.id = id;}
+    public void setNombre(String NombreEspecialidad){this.nombreEspecialidad = NombreEspecialidad;}
+
 }

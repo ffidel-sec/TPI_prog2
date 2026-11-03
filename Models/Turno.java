@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 public class Turno
 {
-    private int codTurno;
     private Paciente paciente;
     private Medico medico;
     private Servicio servicio;
@@ -14,7 +13,7 @@ public class Turno
     private LocalDate fechaReserva;
     
     
-    public Turno(int codTurno, 
+    public Turno( 
     Paciente paciente, 
     Medico medico,
     Servicio servicio,
@@ -23,7 +22,6 @@ public class Turno
     Estado estado,
     LocalDate fechaReserva)
     {
-        this.codTurno = codTurno;
         this.paciente = paciente;
         this.medico = medico;
         this.servicio = servicio;
@@ -33,7 +31,6 @@ public class Turno
         this.fechaReserva = fechaReserva;
     }
     
-    public int getCodTurno(){return codTurno;}
     public Paciente getPaciente(){return paciente;}
     public Medico getMedico(){return medico;}
     public Servicio getServicio(){return servicio;}

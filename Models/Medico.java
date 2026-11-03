@@ -5,7 +5,6 @@ import Controllers.Disponibilidad;
 
 public class Medico extends Persona implements Disponibilidad
 {
-    private int codMedico;
     private String nombreCompleto;
     private String matricula;
     private String dni;
@@ -14,7 +13,7 @@ public class Medico extends Persona implements Disponibilidad
     private int consultorio;
     private Especialidad especialidad;    
     
-    public Medico(int codMedico, 
+    public Medico(
     String nombreCompleto, 
     String matricula,
     String dni,
@@ -24,7 +23,6 @@ public class Medico extends Persona implements Disponibilidad
     Especialidad especialidad)
     {
         super(nombreCompleto, dni, email, nroTelefonico);
-        this.codMedico = codMedico;
         this.matricula = matricula;
         this.consultorio = consultorio;
         this.especialidad = especialidad;
@@ -32,10 +30,13 @@ public class Medico extends Persona implements Disponibilidad
     
     
     
-    public String getNombre(){return nombreCompleto;}
+    public String getNombreCompleto(){return nombreCompleto;}
     public String getMatricula() {return matricula;}
+    public String getDni() {return dni;}
     public String getEmail() {return email;}
-    public String getNumeroTelefono(){return nroTelefonico;}
+    public String getNroTelefonico(){return nroTelefonico;}
+    public int getConsultorio(){return consultorio;}
+    public int getIdEspecialidad(){return especialidad.getId()}
     public Especialidad getEspecialidad(){return especialidad;}
 
     public boolean isEspecialidad(Especialidad especialidad){
