@@ -14,9 +14,4 @@ public class Paciente extends Persona
     {
         super(nombreCompleto, dni, email, nroTelefonico);
     }
-
-    public String getNombreCompleto(){return nombreCompleto;}
-    public String getEmail(){return email;}
-    public String getNroTelefonico(){return nroTelefonico;}
-    public String getDni(){return dni;}
 }

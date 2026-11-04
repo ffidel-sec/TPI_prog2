@@ -5,15 +5,20 @@ import DAOs.MedicoDAO;
 import java.util.ArrayList;
 import java.util.List;
 import Controllers.GestorEspecialidad;
+import java.sql.SQLException;
+
 
 public class GestorMedico{
     private final GestorEspecialidad gestorEspecialidad;
+    private final MedicoDAO dao = new MedicoDAO();
+
     public GestorMedico(GestorEspecialidad gestorEspecialidad) {
         this.gestorEspecialidad = gestorEspecialidad;
     }
 
     private List<Medico> listaMedicos = new ArrayList<>();
-    public boolean registrarMedico(List<Object> medico){
+
+    public boolean registrarMedico(List<Object> medico) throws SQLException{
         String nombreCompleto = (String) medico.get(0);
         String matricula = (String) medico.get(1);
         String dni = (String) medico.get(2);
@@ -24,7 +29,7 @@ public class GestorMedico{
 
         if(gestorEspecialidad.verificarEspecialidad(nombreEspecialidad)){
             Medico m = new Medico(nombreCompleto, matricula, dni, email, nroTelefonico, consultorio, gestorEspecialidad.obtenerEspecialidadPorNombre(nombreEspecialidad));
-            MedicoDAO.registrar(m);
+            dao.registrar(m);
             return true;
         }
         return false;

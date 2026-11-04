@@ -30,13 +30,9 @@ public class Medico extends Persona implements Disponibilidad
     
     
     
-    public String getNombreCompleto(){return nombreCompleto;}
     public String getMatricula() {return matricula;}
-    public String getDni() {return dni;}
-    public String getEmail() {return email;}
-    public String getNroTelefonico(){return nroTelefonico;}
     public int getConsultorio(){return consultorio;}
-    public int getIdEspecialidad(){return especialidad.getId()}
+    public int getIdEspecialidad(){return especialidad.getId();}
     public Especialidad getEspecialidad(){return especialidad;}
 
     public boolean isEspecialidad(Especialidad especialidad){

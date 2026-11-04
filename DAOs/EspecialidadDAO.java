@@ -5,10 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import Models.Especialidad;
 
 public class EspecialidadDAO {
     
-    public void registrar(Especialidad especialidad) throws SQLException{
+    public void registrar(String nombreEspecialidad) throws SQLException{
         String sql = """
             INSERT INTO Especialidad (NombreEspecialidad)
             VALUES (?)
@@ -17,7 +20,7 @@ public class EspecialidadDAO {
         try (Connection conexion = ConexionBD.conectar();
             PreparedStatement sentencia = conexion.prepareStatement(sql)) {
 
-            sentencia.setString(1, especialidad.getNombre());
+            sentencia.setString(1,nombreEspecialidad);
             sentencia.executeUpdate();
         }
     }
@@ -31,9 +34,10 @@ public class EspecialidadDAO {
          ResultSet rs = sentencia.executeQuery()) {
 
             while (rs.next()) {
-                Especialidad e = new Especialidad();
-                e.setId(rs.getInt("id"));
-                e.setNombre(rs.getString("NombreEspecialidad"));
+                Especialidad e = new Especialidad(
+                rs.getInt("id"),
+                rs.getString("NombreEspecialidad"));
+                
                 lista.add(e);
             }  
         }

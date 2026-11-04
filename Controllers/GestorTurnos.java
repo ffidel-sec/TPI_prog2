@@ -12,7 +12,6 @@ public class GestorTurnos
     private ArrayList<FranjaHoraria> listaFranjasHorarias;
     private ArrayList<Servicio> listaServicios;
     private ArrayList<Especialidad> listaEspecialidades;
-    private ArrayList<Consultorio> listaConsultorios;
     private ArrayList<Estado> listaEstados;
     
     

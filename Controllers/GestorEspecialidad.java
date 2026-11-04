@@ -10,19 +10,18 @@ public class GestorEspecialidad {
     private List<Especialidad> listaEspecialidades = new ArrayList<>();
     private final EspecialidadDAO dao = new EspecialidadDAO();
 
+    // REGISTRAR ESPECIALIDAD Y PERSISTIR
     public boolean registrarEspecialidad(List<Object> especialidad) throws SQLException{
         String nombreEspecialidad = (String) especialidad.get(0);
 
-        Especialidad e = new Especialidad(nombreEspecialidad);
-        dao.registrar(e);
+        dao.registrar(nombreEspecialidad);
         getListaEspecialidades();
         return true;
     }
     
+    // OBTENER LISTA DE ESPECIALIDADES 
     public List<Especialidad> getListaEspecialidades() throws SQLException{
-        private List<Especialidad> listaEspecialidades = new ArrayList<>();
         listaEspecialidades = dao.listarEspecialidades();
-        
         return listaEspecialidades;
     }
 

@@ -6,8 +6,9 @@ public class Especialidad
     private String nombreEspecialidad;
 
     
-    public Especialidad(String nombreEspecialidad)
+    public Especialidad( int id, String nombreEspecialidad)
     {
+        this.id = id;
         this.nombreEspecialidad = nombreEspecialidad;
     }
 

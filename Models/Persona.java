@@ -12,4 +12,10 @@ public abstract class Persona{
         this.email = email;
         this.nroTelefonico = nroTelefonico;
     }
+
+    // GETTERS
+    public String getNombreCompleto(){return nombreCompleto;}
+    public String getEmail(){return email;}
+    public String getNroTelefonico(){return nroTelefonico;}
+    public String getDni(){return dni;}
 }

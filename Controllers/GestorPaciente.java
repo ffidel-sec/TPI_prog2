@@ -4,19 +4,23 @@ import Models.Paciente;
 import DAOs.PacienteDAO;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.SQLException;
+
 
 public class GestorPaciente{
 
     private List<Paciente> listaPacientes = new ArrayList<>();
+    private final PacienteDAO dao = new PacienteDAO();
 
-    public boolean registrarPaciente(List<Object> paciente){
+
+    public boolean registrarPaciente(List<Object> paciente) throws SQLException{
         String nombreCompleto = (String) paciente.get(0);
         String email = (String) paciente.get(1);
         String nroTelefonico = (String) paciente.get(2);
         String dni = (String) paciente.get(3);
 
         Paciente p = new Paciente(nombreCompleto, email, nroTelefonico, dni);
-        PacienteDAO.registrar(p);
+        dao.registrar(p);
         
         return true;
     }
