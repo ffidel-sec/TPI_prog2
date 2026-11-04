@@ -19,7 +19,7 @@ public class Servicio
     
     
     public int getId(){return id;}
-    public String getNombre(){return nombreServicio;}
+    public String getNombreServicio(){return nombreServicio;}
     public Especialidad getEspecialidad(){return especialidad;}
     public double getPrecio(){return precio;}
 }

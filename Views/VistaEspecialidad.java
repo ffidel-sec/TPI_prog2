@@ -12,12 +12,12 @@ public class VistaEspecialidad {
         this.scanner = scanner;
     }
 
-    public List<Object> pedirDatosEspecialidad() {
+    /*public List<Object> pedirDatosEspecialidad() {
         System.out.print("==================ESPECIALIDAD==============================\n");
         System.out.print("Ingresar nombre de la especialidad: ");
         String nombreInstanciaEspecialidad = scanner.nextLine();
         especialidad.add(nombreInstanciaEspecialidad);
 
         return especialidad;
-    }
+    }*/
 }

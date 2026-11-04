@@ -9,16 +9,12 @@ import java.sql.SQLException;
 
 
 public class GestorMedico{
-    private final GestorEspecialidad gestorEspecialidad;
     private final MedicoDAO dao = new MedicoDAO();
 
-    public GestorMedico(GestorEspecialidad gestorEspecialidad) {
-        this.gestorEspecialidad = gestorEspecialidad;
-    }
 
     private List<Medico> listaMedicos = new ArrayList<>();
 
-    public boolean registrarMedico(List<Object> medico) throws SQLException{
+   /*  public boolean registrarMedico(List<Object> medico) throws SQLException{
         String nombreCompleto = (String) medico.get(0);
         String matricula = (String) medico.get(1);
         String dni = (String) medico.get(2);
@@ -33,5 +29,9 @@ public class GestorMedico{
             return true;
         }
         return false;
+    }*/
+    public List<Medico> obtenerListaMedicosPorEspecialidad(String nombreServicioSeleccionado) throws SQLException {
+        listaMedicos = dao.getMedicoEspecialidad(nombreServicioSeleccionado);
+        return listaMedicos;
     }
 }
