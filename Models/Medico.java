@@ -5,6 +5,7 @@ import Controllers.Disponibilidad;
 
 public class Medico extends Persona implements Disponibilidad
 {
+    private int id;
     private String nombreCompleto;
     private String matricula;
     private String dni;
@@ -14,6 +15,7 @@ public class Medico extends Persona implements Disponibilidad
     private Especialidad especialidad;    
     
     public Medico(
+    int id,
     String nombreCompleto, 
     String matricula,
     String dni,
@@ -23,6 +25,7 @@ public class Medico extends Persona implements Disponibilidad
     Especialidad especialidad)
     {
         super(nombreCompleto, dni, email, nroTelefonico);
+        this.id = id;
         this.matricula = matricula;
         this.consultorio = consultorio;
         this.especialidad = especialidad;

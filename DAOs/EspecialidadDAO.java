@@ -30,8 +30,8 @@ public class EspecialidadDAO {
         List<Especialidad> lista = new ArrayList<>();
 
         try (Connection conexion = ConexionBD.conectar();
-         PreparedStatement sentencia = conexion.prepareStatement(sql);
-         ResultSet rs = sentencia.executeQuery()) {
+        PreparedStatement sentencia = conexion.prepareStatement(sql);
+        ResultSet rs = sentencia.executeQuery()) {
 
             while (rs.next()) {
                 Especialidad e = new Especialidad(
@@ -40,7 +40,7 @@ public class EspecialidadDAO {
                 
                 lista.add(e);
             }  
-        }
+        }   
         return lista;
     }
 }

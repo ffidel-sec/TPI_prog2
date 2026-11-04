@@ -6,6 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import Models.Medico;
+import java.util.ArrayList;
+import java.util.List;
+import Models.Especialidad;
 
 public class MedicoDAO {
     public void registrar(Medico medico) throws SQLException {
@@ -28,5 +31,49 @@ public class MedicoDAO {
 
             sentencia.executeUpdate();
         }
+    }
+
+    public List<Medico> getMedicoEspecialidad(int idEspecialidad) throws SQLException {
+        String sql = """
+            SELECT m.nombreCompleto,
+                m.matricula,
+                m.dni,
+                m.email,
+                m.nroTelefonico,
+                m.consultorio,
+                e.id                 AS idEspecialidad,
+                e.NombreEspecialidad
+            FROM Medico m
+            JOIN Especialidad e ON e.id = m.idEspecialidad
+            WHERE m.idEspecialidad = ?
+            """;;
+        List<Medico> lista = new ArrayList<>();
+
+        try (Connection conexion = ConexionBD.conectar();
+            PreparedStatement sentencia = conexion.prepareStatement(sql)) {
+
+            sentencia.setInt(1, idEspecialidad);
+            ResultSet rs = sentencia.executeQuery();
+
+            while (rs.next()) {
+                Especialidad especialidad = new Especialidad(
+                    rs.getInt("idEspecialidad"),
+                    rs.getString("NombreEspecialidad")
+                );
+
+                Medico m = new Medico(
+                    rs.getInt("id"),
+                    rs.getString("nombreCompleto"),
+                    rs.getString("matricula"),
+                    rs.getString("dni"),
+                    rs.getString("email"),
+                    rs.getString("nroTelefonico"),
+                    rs.getInt("consultorio"),
+                    especialidad
+                );
+                lista.add(m);
+            }
+        }
+        return lista;
     }
 }
