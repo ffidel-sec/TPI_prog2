@@ -28,9 +28,16 @@ public class Main {
             VistaPaciente vistaPaciente = new VistaPaciente(scanner);
             GestorPaciente gestorPaciente = new GestorPaciente();
 
-            List<Object> paciente = vistaPaciente.pedirDatosPaciente();
-            boolean registroExitosoPaciente = gestorPaciente.registrarPaciente(paciente);
-            System.out.println("Registro exitoso: " + registroExitosoPaciente);
+            String dni = vistaPaciente.pedirDni();
+            Paciente paciente = gestorPaciente.buscarPorDni(dni);
+
+            if (paciente == null){
+                Paciente pacienteCreado = gestorPaciente.registrarPaciente(vistaPaciente.pedirDatosPaciente(dni));
+                vistaPaciente.mostrarRegistroExitoso(pacienteCreado);
+            } else {
+                vistaPaciente.mostrarBienvenida(paciente);
+            }
+
 
             // CREAR SERVICIO
             VistaServicio vistaServicio = new VistaServicio(scanner);
@@ -43,7 +50,7 @@ public class Main {
             vistaMedico.mostrarListaMedicos(gestorMedico.obtenerListaMedicosPorEspecialidad(nombreServicioSeleccionado));
 
         } catch (SQLException e) {
-            System.out.println("Error en la base de datos" + e.getMessage());
+            System.out.println("Error en la base de datos: " + e.getMessage());
 
         }
     }

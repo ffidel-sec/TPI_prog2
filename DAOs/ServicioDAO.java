@@ -33,7 +33,7 @@ public class ServicioDAO {
     } */    
     
     public List<Servicio> listarServicios() throws SQLException {
-        String sql = "SELECT s.NombreServicio, s.precio, e.id AS idEspecialidad, e.NombreEspecialidad FROM Servicio s JOIN Especialidad e ON e.id = s.idEspecialidad";
+        String sql = "SELECT s.id AS idServicio, s.NombreServicio, s.precio, e.id AS idEspecialidad, e.NombreEspecialidad FROM Servicio s JOIN Especialidad e ON e.id = s.idEspecialidad";
         List<Servicio> lista = new ArrayList<>();
 
         try (Connection conexion = ConexionBD.conectar();
@@ -47,7 +47,7 @@ public class ServicioDAO {
                 );
 
                 Servicio s = new Servicio(
-                    rs.getInt("id"),
+                    rs.getInt("idServicio"),
                     rs.getString("NombreServicio"),
                     especialidad,
                     rs.getDouble("precio")

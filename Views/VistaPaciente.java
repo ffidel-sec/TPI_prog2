@@ -3,6 +3,7 @@ package Views;
 import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
+import Models.Paciente;
 
 public class VistaPaciente {
     private final Scanner scanner;
@@ -12,8 +13,13 @@ public class VistaPaciente {
         this.scanner = scanner;
     }
 
-    public List<Object> pedirDatosPaciente(){
+    public String pedirDni(){
         System.out.print("=================PACIENTE========================\n");
+        System.out.println("Ingrese su DNI: ");
+        return scanner.nextLine().trim();
+    }
+
+    public List<Object> pedirDatosPaciente(String dni){
         System.out.print("Ingrese el nombre completo del paciente: ");
         String nombreCompleto = scanner.nextLine();
         paciente.add(nombreCompleto);
@@ -26,10 +32,16 @@ public class VistaPaciente {
         String nroTelefonico = scanner.nextLine();
         paciente.add(nroTelefonico);
 
-        System.out.print("Ingrese su DNI: ");
-        String dni = scanner.nextLine();
         paciente.add(dni);
 
         return paciente;
+    }
+
+    public void mostrarBienvenida(Paciente paciente) {
+        System.out.println("Bienvenido de nuevo, " + paciente.getNombreCompleto() + ".");
+    }
+
+    public void mostrarRegistroExitoso(Paciente paciente) {
+        System.out.println("Paciente registrado con éxito.");
     }
 }

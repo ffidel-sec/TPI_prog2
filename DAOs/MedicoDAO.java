@@ -36,6 +36,7 @@ public class MedicoDAO {
     public List<Medico> getMedicoEspecialidad(String nombreServicioSeleccionado) throws SQLException {
         String sql = """
             SELECT m.nombreCompleto,
+               m.id                AS idMedico,
                m.matricula,
                m.dni,
                m.email,
@@ -46,7 +47,7 @@ public class MedicoDAO {
             FROM Medico m
             INNER JOIN Especialidad e ON e.id = m.idEspecialidad
             WHERE LOWER(e.NombreEspecialidad) = LOWER(?)
-            """;;
+            """;
         List<Medico> lista = new ArrayList<>();
 
         try (Connection conexion = ConexionBD.conectar();
@@ -62,7 +63,7 @@ public class MedicoDAO {
                 );
 
                 Medico m = new Medico(
-                    rs.getInt("id"),
+                    rs.getInt("idMedico"),
                     rs.getString("nombreCompleto"),
                     rs.getString("matricula"),
                     rs.getString("dni"),

@@ -10,6 +10,7 @@
 /home/ffidel/TPI_prog2/DAOs/InicializadorDB.java
 /home/ffidel/TPI_prog2/DAOs/MedicoDAO.java
 /home/ffidel/TPI_prog2/DAOs/PacienteDAO.java
+/home/ffidel/TPI_prog2/DAOs/ServicioDAO.java
 /home/ffidel/TPI_prog2/Models/Especialidad.java
 /home/ffidel/TPI_prog2/Models/Estado.java
 /home/ffidel/TPI_prog2/Models/FranjaHoraria.java
@@ -18,8 +19,8 @@
 /home/ffidel/TPI_prog2/Models/Persona.java
 /home/ffidel/TPI_prog2/Models/Servicio.java
 /home/ffidel/TPI_prog2/Models/Turno.java
+/home/ffidel/TPI_prog2/Views/Main.java
 /home/ffidel/TPI_prog2/Views/VistaEspecialidad.java
 /home/ffidel/TPI_prog2/Views/VistaMedico.java
 /home/ffidel/TPI_prog2/Views/VistaPaciente.java
 /home/ffidel/TPI_prog2/Views/VistaServicio.java
-/home/ffidel/TPI_prog2/Views/main.java

@@ -13,7 +13,7 @@ public class GestorPaciente{
     private final PacienteDAO dao = new PacienteDAO();
 
 
-    public boolean registrarPaciente(List<Object> paciente) throws SQLException{
+    public Paciente registrarPaciente(List<Object> paciente) throws SQLException{
         String nombreCompleto = (String) paciente.get(0);
         String email = (String) paciente.get(1);
         String nroTelefonico = (String) paciente.get(2);
@@ -22,6 +22,14 @@ public class GestorPaciente{
         Paciente p = new Paciente(nombreCompleto, email, nroTelefonico, dni);
         dao.registrar(p);
         
-        return true;
+        return p;
+    }
+
+    public boolean verificarExistencia(String dni) throws SQLException {
+        return dao.buscarPorDni(dni) != null;
+    }
+
+    public Paciente buscarPorDni(String dni) throws SQLException{
+        return(dao.buscarPorDni(dni));
     }
 }
