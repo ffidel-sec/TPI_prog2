@@ -14,7 +14,7 @@ public class GestorMedico{
 
     private List<Medico> listaMedicos = new ArrayList<>();
 
-   /*  public boolean registrarMedico(List<Object> medico) throws SQLException{
+    /*  public boolean registrarMedico(List<Object> medico) throws SQLException{
         String nombreCompleto = (String) medico.get(0);
         String matricula = (String) medico.get(1);
         String dni = (String) medico.get(2);
@@ -30,8 +30,11 @@ public class GestorMedico{
         }
         return false;
     }*/
+    
     public List<Medico> obtenerListaMedicosPorEspecialidad(String nombreServicioSeleccionado) throws SQLException {
         listaMedicos = dao.getMedicoEspecialidad(nombreServicioSeleccionado);
         return listaMedicos;
     }
+
+    
 }

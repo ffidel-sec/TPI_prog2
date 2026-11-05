@@ -36,14 +36,14 @@ public class MedicoDAO {
     public List<Medico> getMedicoEspecialidad(String nombreServicioSeleccionado) throws SQLException {
         String sql = """
             SELECT m.nombreCompleto,
-               m.id                AS idMedico,
-               m.matricula,
-               m.dni,
-               m.email,
-               m.nroTelefonico,
-               m.consultorio,
-               e.id                 AS idEspecialidad,
-               e.NombreEspecialidad
+                m.id                AS idMedico,
+                m.matricula,
+                m.dni,
+                m.email,
+                m.nroTelefonico,
+                m.consultorio,
+                e.id                 AS idEspecialidad,
+                e.NombreEspecialidad
             FROM Medico m
             INNER JOIN Especialidad e ON e.id = m.idEspecialidad
             WHERE LOWER(e.NombreEspecialidad) = LOWER(?)
@@ -77,4 +77,6 @@ public class MedicoDAO {
         }
         return lista;
     }
+
+    
 }

@@ -7,7 +7,8 @@ import java.time.format.DateTimeFormatter;
 import Models.*;
 import Controllers.*;
 import java.sql.SQLException;
-
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) throws SQLException{
@@ -44,10 +45,21 @@ public class Main {
             GestorServicio gestorServicio = new GestorServicio();
             String nombreServicioSeleccionado = vistaServicio.mostrarListaServicios(gestorServicio.obtenerListaServicios());
 
+            //TURNO
+            VistaTurno vistaTurno = new VistaTurno(scanner);
+            GestorTurnos gestorTurnos = new GestorTurnos();
+            LocalDate fechaTurno = vistaTurno.getFechaTurno();
+            int diaSemana = gestorTurnos.getDiaSemana(fechaTurno);
+
+            ArrayList<FranjaHoraria> franjasDisponibles = gestorTurnos.getFranjasHorariasPorDia(nombreServicioSeleccionado, diaSemana);
+
+            vistaTurno.mostrarFranjasDisponibles(franjasDisponibles);
+
             //MEDICO
             VistaMedico vistaMedico = new VistaMedico(scanner);
             GestorMedico gestorMedico = new GestorMedico();
             vistaMedico.mostrarListaMedicos(gestorMedico.obtenerListaMedicosPorEspecialidad(nombreServicioSeleccionado));
+
 
         } catch (SQLException e) {
             System.out.println("Error en la base de datos: " + e.getMessage());
