@@ -23,9 +23,15 @@ public class GestorServicio {
         }
         return false;
     }*/
+
     public List<Servicio> obtenerListaServicios() throws SQLException {
         listaServicios = dao.listarServicios();
         return listaServicios;
     }
 
-}
+    public Servicio obtenerServicioPorNombre(String nombreServicio) throws SQLException {
+        return dao.obtenerServicioPorNombre(nombreServicio);
+    }
+
+} 
+

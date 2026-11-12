@@ -35,6 +35,4 @@ public class GestorMedico{
         listaMedicos = dao.getMedicoEspecialidad(nombreServicioSeleccionado);
         return listaMedicos;
     }
-
-    
 }

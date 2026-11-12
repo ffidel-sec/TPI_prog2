@@ -49,5 +49,25 @@ public class TurnoDAO {
                 }
             }
             return listaFranjas;
-    } 
+    }
+    
+    public boolean registrarTurno(Turno turno, String dni) throws SQLException {
+        String sql = 
+        """
+        INSERT INTO Turno (idPaciente, idServicio, idMedico, idFranjaHoraria, fecha)
+        SELECT p.id, ?, ?, ?, ?
+        FROM Paciente p
+        WHERE p.dni = ?
+        """;
+        try (Connection conexion = ConexionBD.conectar();
+             PreparedStatement sentencia = conexion.prepareStatement(sql)) {
+            sentencia.setInt(1, turno.getServicio().getId());
+            sentencia.setInt(2, turno.getMedico().getId());
+            sentencia.setInt(3, turno.getHorario().getId());
+            sentencia.setDate(4, java.sql.Date.valueOf(turno.getFechaReserva()));
+            sentencia.setString(5, dni);
+            int filasAfectadas = sentencia.executeUpdate();
+            return filasAfectadas > 0;
+        }
+    }
 }

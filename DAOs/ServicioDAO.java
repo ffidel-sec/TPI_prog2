@@ -57,4 +57,31 @@ public class ServicioDAO {
         }
         return lista;
     }
+
+    public Servicio obtenerServicioPorNombre(String nombreServicio) throws SQLException {
+        String sql = "SELECT s.id AS idServicio, s.NombreServicio, s.precio, e.id AS idEspecialidad, e.NombreEspecialidad FROM Servicio s JOIN Especialidad e ON e.id = s.idEspecialidad WHERE s.NombreServicio = ?";
+        Servicio servicio = null;
+
+        try (Connection conexion = ConexionBD.conectar();
+            PreparedStatement sentencia = conexion.prepareStatement(sql)) {
+
+            sentencia.setString(1, nombreServicio);
+            ResultSet rs = sentencia.executeQuery();
+
+            if (rs.next()) {
+                Especialidad especialidad = new Especialidad(
+                    rs.getInt("idEspecialidad"),
+                    rs.getString("NombreEspecialidad")
+                );
+
+                servicio = new Servicio(
+                    rs.getInt("idServicio"),
+                    rs.getString("NombreServicio"),
+                    especialidad,
+                    rs.getDouble("precio")
+                );
+            }
+        }
+        return servicio;
+    }
 } 

@@ -32,7 +32,7 @@ public class Medico extends Persona implements Disponibilidad
     }
     
     
-    
+    public int getId() {return id;}
     public String getMatricula() {return matricula;}
     public int getConsultorio(){return consultorio;}
     public int getIdEspecialidad(){return especialidad.getId();}
