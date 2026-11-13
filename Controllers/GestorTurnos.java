@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import DAOs.TurnoDAO;
 import java.sql.SQLException;
 import Models.*;
+import java.util.LinkedHashMap;
 
 public class GestorTurnos
 {
@@ -15,13 +16,11 @@ public class GestorTurnos
         return fecha.getDayOfWeek().getValue();
     }
 
-    public ArrayList<FranjaHoraria> getFranjasHorariasPorDia(String servicio, int diaSemana) throws SQLException {
+    public LinkedHashMap<FranjaHoraria, Integer> getFranjasHorariasPorDia(String servicio, int diaSemana) throws SQLException {
         return dao.getFranjasHorariasPorDia(servicio, diaSemana);
     }
 
-    public boolean registrarTurno(Paciente paciente, Medico medico, Servicio servicio, FranjaHoraria horario, LocalDate fechaReserva) throws SQLException {
-        Turno turno = new Turno(paciente, medico, servicio, horario, Estado.PENDIENTE, fechaReserva);
-        return dao.registrarTurno(turno, paciente.getDni());
-        return true;
+    public boolean registrarTurno(Paciente paciente, int idMedico, Servicio servicio, FranjaHoraria horario, LocalDate fechaReserva) throws SQLException {
+        return dao.registrarTurno(paciente.getDni(), idMedico, servicio, horario, fechaReserva);
     }
 }

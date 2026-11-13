@@ -11,11 +11,13 @@ import java.util.List;
 import Models.Turno;
 import Models.FranjaHoraria;
 import java.time.LocalTime;
+import java.util.LinkedHashMap;
+import java.time.LocalDate;
 
 public class TurnoDAO {
     
-    public ArrayList<FranjaHoraria> getFranjasHorariasPorDia(String servicio, int diaSemana) throws SQLException {
-        ArrayList<FranjaHoraria> listaFranjas = new ArrayList<>();
+    public LinkedHashMap<FranjaHoraria, Integer> getFranjasHorariasPorDia(String servicio, int diaSemana) throws SQLException {
+        LinkedHashMap<FranjaHoraria, Integer> franjasConIdMedico = new LinkedHashMap<>();
 
         String sql = """
             SELECT     
@@ -45,13 +47,14 @@ public class TurnoDAO {
                     String nombreServicio = resultado.getString("NombreServicio");
 
                     FranjaHoraria franja = new FranjaHoraria(idFranja, dia, horaInicio, horaFin);
-                    listaFranjas.add(franja);
+                    franjasConIdMedico.put(franja, idMedico);
+
                 }
             }
-            return listaFranjas;
+            return franjasConIdMedico;
     }
     
-    public boolean registrarTurno(Turno turno, String dni) throws SQLException {
+    public boolean registrarTurno(String dni, int idMedico, Servicio servicio, FranjaHoraria horario, LocalDate fechaReserva) throws SQLException {
         String sql = 
         """
         INSERT INTO Turno (idPaciente, idServicio, idMedico, idFranjaHoraria, fecha)
@@ -61,10 +64,10 @@ public class TurnoDAO {
         """;
         try (Connection conexion = ConexionBD.conectar();
              PreparedStatement sentencia = conexion.prepareStatement(sql)) {
-            sentencia.setInt(1, turno.getServicio().getId());
-            sentencia.setInt(2, turno.getMedico().getId());
-            sentencia.setInt(3, turno.getHorario().getId());
-            sentencia.setDate(4, java.sql.Date.valueOf(turno.getFechaReserva()));
+            sentencia.setInt(1, servicio.getId());
+            sentencia.setInt(2, idMedico);
+            sentencia.setInt(3, horario.getId());
+            sentencia.setDate(4, java.sql.Date.valueOf(fechaReserva));
             sentencia.setString(5, dni);
             int filasAfectadas = sentencia.executeUpdate();
             return filasAfectadas > 0;

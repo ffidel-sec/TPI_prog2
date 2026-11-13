@@ -57,7 +57,6 @@ public class ServicioDAO {
         }
         return lista;
     }
-
     public Servicio obtenerServicioPorNombre(String nombreServicio) throws SQLException {
         String sql = "SELECT s.id AS idServicio, s.NombreServicio, s.precio, e.id AS idEspecialidad, e.NombreEspecialidad FROM Servicio s JOIN Especialidad e ON e.id = s.idEspecialidad WHERE s.NombreServicio = ?";
         Servicio servicio = null;
