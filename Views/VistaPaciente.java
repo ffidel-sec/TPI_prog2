@@ -7,7 +7,6 @@ import Models.Paciente;
 
 public class VistaPaciente {
     private final Scanner scanner;
-    List<Object> paciente = new ArrayList<>();
 
     public VistaPaciente(Scanner scanner) {
         this.scanner = scanner;
@@ -20,6 +19,7 @@ public class VistaPaciente {
     }
 
     public List<Object> pedirDatosPaciente(String dni){
+        List<Object> paciente = new ArrayList<>();
         System.out.print("Ingrese el nombre completo del paciente: ");
         String nombreCompleto = scanner.nextLine();
         paciente.add(nombreCompleto);

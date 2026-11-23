@@ -18,26 +18,35 @@ import Models.Estado;
 
 public class TurnoDAO {
     
-    public LinkedHashMap<FranjaHoraria, Integer> getFranjasHorariasPorDia(String servicio, int diaSemana) throws SQLException {
+    public LinkedHashMap<FranjaHoraria, Integer> getFranjasHorariasPorDia(String servicio, int diaSemana, LocalDate fechaTurno) throws SQLException {
         LinkedHashMap<FranjaHoraria, Integer> franjasConIdMedico = new LinkedHashMap<>();
 
         String sql = """
-            SELECT     
-            fh.id              AS idFranja,
-            fh.*,
-            m.id               AS idMedico,
-            m.NombreCompleto,
-            s.NombreServicio FROM FranjaHoraria AS fh 
-            INNER JOIN MedicoFranja AS mf ON fh.id = mf.idFranjaHoraria 
-            INNER JOIN Medico m          ON mf.idMedico = m.id 
-            INNER JOIN Servicio s        ON m.idEspecialidad = s.idEspecialidad 
-            WHERE s.NombreServicio LIKE ? AND fh.DiaSemana = ?;
-            """;
+            SELECT fh.id          AS idFranja,
+             fh.DiaSemana,
+                fh.horaInicio,
+                fh.horaFin,
+                MIN(m.id)      AS idMedico
+                FROM Servicio s
+                INNER JOIN Medico m         ON m.idEspecialidad = s.idEspecialidad
+                INNER JOIN MedicoFranja mf  ON mf.idMedico = m.id
+                INNER JOIN FranjaHoraria fh ON fh.id = mf.idFranjaHoraria
+                LEFT  JOIN Turno t          ON t.idMedico = m.id
+                           AND t.idFranjaHoraria = fh.id
+                           AND t.fecha = ?
+                           AND t.estado IN ('PENDIENTE','EN_CURSO')
+                WHERE s.nombreServicio LIKE ?
+                AND fh.DiaSemana = ?
+                AND t.id IS NULL
+                GROUP BY fh.id, fh.DiaSemana, fh.horaInicio, fh.horaFin
+                ORDER BY fh.horaInicio;
+        """;
         
         try (Connection conexion = ConexionBD.conectar();
             PreparedStatement sentencia = conexion.prepareStatement(sql)) {
-                sentencia.setString(1, "%" + servicio + "%");
-                sentencia.setInt(2, diaSemana);
+                sentencia.setDate(1, java.sql.Date.valueOf(fechaTurno));
+                sentencia.setString(2, "%" + servicio + "%");
+                sentencia.setInt(3, diaSemana);
                 ResultSet resultado = sentencia.executeQuery();
                 while (resultado.next()) {
                     int idFranja = resultado.getInt("idFranja");
@@ -45,8 +54,6 @@ public class TurnoDAO {
                     LocalTime horaInicio = resultado.getTime("HoraInicio").toLocalTime();
                     LocalTime horaFin = resultado.getTime("HoraFin").toLocalTime();
                     int idMedico = resultado.getInt("idMedico");
-                    String nombreMedico = resultado.getString("NombreCompleto");
-                    String nombreServicio = resultado.getString("NombreServicio");
 
                     FranjaHoraria franja = new FranjaHoraria(idFranja, dia, horaInicio, horaFin);
                     franjasConIdMedico.put(franja, idMedico);

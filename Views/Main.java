@@ -47,7 +47,7 @@ public class Main {
                 LocalDate fechaTurno = vistaTurno.getFechaTurno();
                 int diaSemana = gestorTurnos.getDiaSemana(fechaTurno);
 
-                LinkedHashMap<FranjaHoraria, Integer> franjasDisponibles = gestorTurnos.getFranjasHorariasPorDia(nombreServicioSeleccionado, diaSemana);
+                LinkedHashMap<FranjaHoraria, Integer> franjasDisponibles = gestorTurnos.getFranjasHorariasPorDia(nombreServicioSeleccionado, diaSemana, fechaTurno);
                 ArrayList<FranjaHoraria> franjasList = new ArrayList<>(franjasDisponibles.keySet());
                 int nroFranja = vistaTurno.mostrarFranjasDisponibles(franjasList);
                 FranjaHoraria franjaSeleccionada = franjasList.get(nroFranja);  // Obtener la franja seleccionada por el usuario

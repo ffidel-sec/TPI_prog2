@@ -16,8 +16,8 @@ public class GestorTurnos
         return fecha.getDayOfWeek().getValue();
     }
 
-    public LinkedHashMap<FranjaHoraria, Integer> getFranjasHorariasPorDia(String servicio, int diaSemana) throws SQLException {
-        return dao.getFranjasHorariasPorDia(servicio, diaSemana);
+    public LinkedHashMap<FranjaHoraria, Integer> getFranjasHorariasPorDia(String servicio, int diaSemana, LocalDate fechaTurno) throws SQLException {
+        return dao.getFranjasHorariasPorDia(servicio, diaSemana, fechaTurno);
     }
 
     public boolean registrarTurno(Paciente paciente, int idMedico, Servicio servicio, FranjaHoraria horario, LocalDate fechaReserva) throws SQLException {
