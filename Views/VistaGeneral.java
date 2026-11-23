@@ -12,7 +12,7 @@ public class VistaGeneral {
     }
 
     public int mostrarMenu(){
-        System.out.println("=== MENU TURNOS ===");
+        System.out.println("\n=== MENU TURNOS ===");
         System.out.println("[1] Registrar un Turno");
         System.out.println("[2] Obtener lista de Turnos");
         System.out.println("[3] Obtener lista de Turnos activos");

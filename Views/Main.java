@@ -26,20 +26,20 @@ public class Main {
 
         int opcion = -1;
         while (opcion != 0){
-            
-            //PACIENTE
-            String dni = vistaPaciente.pedirDni();
-            Paciente paciente = gestorPaciente.buscarPorDni(dni);
-
-            if (paciente == null){
-                paciente = gestorPaciente.registrarPaciente(vistaPaciente.pedirDatosPaciente(dni));
-                vistaPaciente.mostrarRegistroExitoso(paciente);
-            } else {
-                vistaPaciente.mostrarBienvenida(paciente);
-            }
-
             opcion = vistaGeneral.mostrarMenu();
+            
             if (opcion == 1){
+                //PACIENTE
+                String dni = vistaPaciente.pedirDni();
+                Paciente paciente = gestorPaciente.buscarPorDni(dni);
+
+                if (paciente == null){
+                    paciente = gestorPaciente.registrarPaciente(vistaPaciente.pedirDatosPaciente(dni));
+                    vistaPaciente.mostrarRegistroExitoso(paciente);
+                } else {
+                    vistaPaciente.mostrarBienvenida(paciente);
+                }
+
                 // CREAR SERVICIO
                 String nombreServicioSeleccionado = vistaServicio.mostrarListaServicios(gestorServicio.obtenerListaServicios());
 

@@ -20,8 +20,10 @@
 /home/ffidel/TPI_prog2/Models/Persona.java
 /home/ffidel/TPI_prog2/Models/Servicio.java
 /home/ffidel/TPI_prog2/Models/Turno.java
+/home/ffidel/TPI_prog2/Models/TurnoDTO.java
 /home/ffidel/TPI_prog2/Views/Main.java
 /home/ffidel/TPI_prog2/Views/VistaEspecialidad.java
+/home/ffidel/TPI_prog2/Views/VistaGeneral.java
 /home/ffidel/TPI_prog2/Views/VistaMedico.java
 /home/ffidel/TPI_prog2/Views/VistaPaciente.java
 /home/ffidel/TPI_prog2/Views/VistaServicio.java

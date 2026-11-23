@@ -36,14 +36,16 @@ public class VistaTurno {
 
     public void listarTurnos(ArrayList<TurnoDTO> listaTurnos){
         for (TurnoDTO t: listaTurnos){
-            System.out.println("=== LISTA DE TURNOS ===");
-            System.out.print(t.id());
-            System.out.print(t.fecha());
-            System.out.print(t.horaInicio());
-            System.out.print(t.horaFin());
-            System.out.print(t.servicio());
-            System.out.print(t.medico());
-            System.out.print(t.estado());
+            System.out.println("\n---------------------");
+            System.out.print("ID: " + t.id() + "\n");
+            System.out.print("Fecha: " + t.fecha() + "\n");
+            System.out.print("Hora de Inicio: " + t.horaInicio() + "\n");
+            System.out.print("Hora de Fin: " + t.horaFin() + "\n");
+            System.out.print("Servicio Seleccionado: " + t.servicio() + "\n");
+            System.out.print("Medico Asignado: " + t.medico() + "\n");
+            System.out.print("Estado del turno: " + t.estado() + "\n");
+            System.out.println("---------------------");
+
         }
     }
 
