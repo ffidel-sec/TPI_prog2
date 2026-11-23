@@ -23,4 +23,34 @@ public class GestorTurnos
     public boolean registrarTurno(Paciente paciente, int idMedico, Servicio servicio, FranjaHoraria horario, LocalDate fechaReserva) throws SQLException {
         return dao.registrarTurno(paciente.getDni(), idMedico, servicio, horario, fechaReserva);
     }
+
+    public ArrayList<TurnoDTO> getListaTurnos() throws SQLException {
+        return dao.listarTurnos();
+    }
+
+    public ArrayList<TurnoDTO> getListaTurnosActivos() throws SQLException {
+        ArrayList<TurnoDTO> listaTurnosActivos = new ArrayList<>();
+        for(TurnoDTO t: dao.listarTurnos()){
+            if(t.estado() == Estado.PENDIENTE || t.estado() == Estado.EN_CURSO){
+                listaTurnosActivos.add(t);
+            }
+        }
+        return listaTurnosActivos;
+    }
+
+    public ArrayList<TurnoDTO> getListaTurnosCancelados() throws SQLException {
+        ArrayList<TurnoDTO> listaTurnosCancelados = new ArrayList<>();
+        for(TurnoDTO t: dao.listarTurnos()){
+            if(t.estado() == Estado.CANCELADO){
+                listaTurnosCancelados.add(t);
+            }
+        }
+        return listaTurnosCancelados;
+    }
+
+    public boolean cancelarTurno(int id) throws SQLException{
+        return dao.cancelarTurno(id);
+    }
+
+
 }

@@ -6,6 +6,7 @@ import java.util.Scanner;
 import Models.Turno;
 import java.time.LocalDate;
 import Models.FranjaHoraria;
+import Models.TurnoDTO;
 
 public class VistaTurno {
 
@@ -32,4 +33,27 @@ public class VistaTurno {
         int numero = scanner.nextInt();
         return numero - 1; // Restamos 1 para obtener el índice correcto en la lista      
     }
+
+    public void listarTurnos(ArrayList<TurnoDTO> listaTurnos){
+        for (TurnoDTO t: listaTurnos){
+            System.out.println("=== LISTA DE TURNOS ===");
+            System.out.print(t.id());
+            System.out.print(t.fecha());
+            System.out.print(t.horaInicio());
+            System.out.print(t.horaFin());
+            System.out.print(t.servicio());
+            System.out.print(t.medico());
+            System.out.print(t.estado());
+        }
+    }
+
+    public int pedirId(){
+        System.out.println("Ingresar el id del turno a cancelar: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        return id;
+    }
+
+
 }

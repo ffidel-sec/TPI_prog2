@@ -13,6 +13,8 @@ import Models.FranjaHoraria;
 import java.time.LocalTime;
 import java.util.LinkedHashMap;
 import java.time.LocalDate;
+import Models.TurnoDTO;
+import Models.Estado;
 
 public class TurnoDAO {
     
@@ -63,7 +65,7 @@ public class TurnoDAO {
         WHERE p.dni = ?
         """;
         try (Connection conexion = ConexionBD.conectar();
-             PreparedStatement sentencia = conexion.prepareStatement(sql)) {
+            PreparedStatement sentencia = conexion.prepareStatement(sql)) {
             sentencia.setInt(1, servicio.getId());
             sentencia.setInt(2, idMedico);
             sentencia.setInt(3, horario.getId());
@@ -72,5 +74,55 @@ public class TurnoDAO {
             int filasAfectadas = sentencia.executeUpdate();
             return filasAfectadas > 0;
         }
+    }
+
+    public ArrayList<TurnoDTO> listarTurnos() throws SQLException {
+        ArrayList<TurnoDTO> listaTurnos = new ArrayList<>(); 
+        String sql =
+        """
+        SELECT t.id,
+            t.fecha,
+            fh.horaInicio,
+            fh.horaFin,
+            s.NombreServicio,
+            m.NombreCompleto  AS medico,
+            t.estado
+        FROM Turno t
+        INNER JOIN Paciente p       ON p.id = t.idPaciente
+        INNER JOIN Servicio s       ON s.id = t.idServicio
+        INNER JOIN Medico m         ON m.id = t.idMedico
+        INNER JOIN FranjaHoraria fh ON fh.id = t.idFranjaHoraria
+        ORDER BY t.fecha, fh.horaInicio
+        """;
+        try (Connection conexion = ConexionBD.conectar();
+            PreparedStatement sentencia = conexion.prepareStatement(sql);
+            ResultSet rs = sentencia.executeQuery()){
+                while (rs.next()){
+                    listaTurnos.add(new TurnoDTO(
+                    rs.getInt("id"),
+                    rs.getDate("fecha").toLocalDate(),
+                    rs.getTime("horaInicio").toLocalTime(),
+                    rs.getTime("horaFin").toLocalTime(),
+                    rs.getString("NombreServicio"),
+                    rs.getString("medico"),
+                    Estado.valueOf(rs.getString("estado"))
+                ));
+                }
+            } 
+        return listaTurnos;    
+    }
+
+    public boolean cancelarTurno(int id) throws SQLException{
+        String sql =
+        """
+        UPDATE Turno SET estado = 'CANCELADO' WHERE id = ?
+        """;
+
+        try (Connection conexion = ConexionBD.conectar();
+            PreparedStatement sentencia = conexion.prepareStatement(sql)){
+                sentencia.setInt(1, id);
+                int filasAfectadas = sentencia.executeUpdate();
+                return filasAfectadas > 0;
+            }
     }
 }
