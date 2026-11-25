@@ -93,7 +93,9 @@ public class TurnoDAO {
             fh.horaFin,
             s.NombreServicio,
             m.NombreCompleto  AS medico,
-            t.estado
+            t.estado,
+            p.dni,
+            p.nombre_completo
         FROM Turno t
         INNER JOIN Paciente p       ON p.id = t.idPaciente
         INNER JOIN Servicio s       ON s.id = t.idServicio
@@ -112,6 +114,8 @@ public class TurnoDAO {
                     rs.getTime("horaFin").toLocalTime(),
                     rs.getString("NombreServicio"),
                     rs.getString("medico"),
+                    rs.getString("dni"),
+                    rs.getString("nombre_completo"),
                     Estado.valueOf(rs.getString("estado"))
                 ));
                 }

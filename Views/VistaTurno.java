@@ -43,14 +43,28 @@ public class VistaTurno {
             System.out.print("Hora de Fin: " + t.horaFin() + "\n");
             System.out.print("Servicio Seleccionado: " + t.servicio() + "\n");
             System.out.print("Medico Asignado: " + t.medico() + "\n");
+            System.out.print("Paciente: " + t.nombrePaciente() + "\n");
             System.out.print("Estado del turno: " + t.estado() + "\n");
             System.out.println("---------------------");
 
         }
     }
 
+    public void listarTurno(TurnoDTO t){
+            System.out.println("\n---------------------");
+            System.out.print("ID: " + t.id() + "\n");
+            System.out.print("Fecha: " + t.fecha() + "\n");
+            System.out.print("Hora de Inicio: " + t.horaInicio() + "\n");
+            System.out.print("Hora de Fin: " + t.horaFin() + "\n");
+            System.out.print("Servicio Seleccionado: " + t.servicio() + "\n");
+            System.out.print("Medico Asignado: " + t.medico() + "\n");
+            System.out.print("Paciente: " + t.nombrePaciente() + "\n");
+            System.out.print("Estado del turno: " + t.estado() + "\n");
+            System.out.println("---------------------"); 
+    }
+
     public int pedirId(){
-        System.out.println("Ingresar el id del turno a cancelar: ");
+        System.out.println("Ingresar el id del turno: ");
         int id = scanner.nextInt();
         scanner.nextLine();
 

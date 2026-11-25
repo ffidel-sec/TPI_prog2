@@ -1,9 +1,8 @@
 package Models;
 import Controllers.GestorEspecialidad;
 import java.util.ArrayList;
-import Controllers.Disponibilidad;
 
-public class Medico extends Persona implements Disponibilidad
+public class Medico extends Persona
 {
     private int id;
     private String nombreCompleto;
@@ -42,5 +41,4 @@ public class Medico extends Persona implements Disponibilidad
         return this.especialidad.equals(especialidad);
     }
 
-    public boolean isDisponible(){return true;}
 }

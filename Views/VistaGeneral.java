@@ -18,7 +18,9 @@ public class VistaGeneral {
         System.out.println("[3] Obtener lista de Turnos activos");
         System.out.println("[4] Obtener lista de Turnos cancelados");
         System.out.println("[5] Cancelar un Turno");
-        System.out.println("[0] Salir\n");
+        System.out.println("[6] Obtener lista de turnos por paciente");
+        System.out.println("[7] Obtener turno por id");
+        System.out.println("[0] Salir\n");  
 
 
         System.out.println("Selecciona una opcion: ");

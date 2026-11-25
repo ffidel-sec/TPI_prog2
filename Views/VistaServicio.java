@@ -12,23 +12,6 @@ public class VistaServicio {
         this.scanner = scanner;
     }
 
-    /*public List<Object> pedirDatosServicio() {
-        System.out.print("==================SERVICIO==============================\n");
-
-        System.out.print("Ingresar nombre del servicio: ");
-        String nombreServicio = scanner.nextLine();
-        servicio.add(nombreServicio);
-
-        System.out.print("Ingresar nombre de la especialidad que lleva a cabo el servicio: ");
-        String nombreEspecialidadServicio = scanner.nextLine();
-        servicio.add(nombreEspecialidadServicio);
-
-        System.out.println("Ingrese el precio del servicio: ");
-        double precio = scanner.nextDouble();
-        servicio.add(precio);
-
-        return servicio;
-    }*/
     public String mostrarListaServicios(List<Servicio> listaServicios) {
         System.out.println("Lista de servicios disponibles:");
         for (Servicio servicio : listaServicios) {

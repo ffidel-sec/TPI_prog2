@@ -10,5 +10,7 @@ public record TurnoDTO(
         LocalTime horaFin,
         String servicio,
         String medico,
+        String dni,
+        String nombrePaciente,
         Estado estado
     ) {}

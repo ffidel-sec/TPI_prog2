@@ -77,6 +77,12 @@ public class Main {
                     System.out.println("Error al cancelar el turno");
                 }
             }
+            else if(opcion == 6){
+                vistaTurno.listarTurnos(gestorTurnos.getListaTurnosPaciente(vistaPaciente.pedirDni()));
+            }
+            else if(opcion == 7) {
+                vistaTurno.listarTurno(gestorTurnos.getTurnoId(vistaTurno.pedirId()));
+            }    
             else if(opcion == 0){
                 System.out.println("Adios");
                 break;

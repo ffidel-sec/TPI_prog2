@@ -1,30 +1,27 @@
-/home/ffidel/TPI_prog2/Controllers/Disponibilidad.java
-/home/ffidel/TPI_prog2/Controllers/GestorEspecialidad.java
-/home/ffidel/TPI_prog2/Controllers/GestorMedico.java
-/home/ffidel/TPI_prog2/Controllers/GestorPaciente.java
-/home/ffidel/TPI_prog2/Controllers/GestorServicio.java
-/home/ffidel/TPI_prog2/Controllers/GestorTurnos.java
-/home/ffidel/TPI_prog2/Controllers/VerificarDisponibilidad.java
-/home/ffidel/TPI_prog2/DAOs/ConexionBD.java
-/home/ffidel/TPI_prog2/DAOs/EspecialidadDAO.java
-/home/ffidel/TPI_prog2/DAOs/InicializadorDB.java
-/home/ffidel/TPI_prog2/DAOs/MedicoDAO.java
-/home/ffidel/TPI_prog2/DAOs/PacienteDAO.java
-/home/ffidel/TPI_prog2/DAOs/ServicioDAO.java
-/home/ffidel/TPI_prog2/DAOs/TurnoDAO.java
-/home/ffidel/TPI_prog2/Models/Especialidad.java
-/home/ffidel/TPI_prog2/Models/Estado.java
-/home/ffidel/TPI_prog2/Models/FranjaHoraria.java
-/home/ffidel/TPI_prog2/Models/Medico.java
-/home/ffidel/TPI_prog2/Models/Paciente.java
-/home/ffidel/TPI_prog2/Models/Persona.java
-/home/ffidel/TPI_prog2/Models/Servicio.java
-/home/ffidel/TPI_prog2/Models/Turno.java
-/home/ffidel/TPI_prog2/Models/TurnoDTO.java
-/home/ffidel/TPI_prog2/Views/Main.java
-/home/ffidel/TPI_prog2/Views/VistaEspecialidad.java
-/home/ffidel/TPI_prog2/Views/VistaGeneral.java
-/home/ffidel/TPI_prog2/Views/VistaMedico.java
-/home/ffidel/TPI_prog2/Views/VistaPaciente.java
-/home/ffidel/TPI_prog2/Views/VistaServicio.java
-/home/ffidel/TPI_prog2/Views/VistaTurno.java
+/home/ffidel/uni/prog2/TPI_prog2 - copia_sin_interfaz/Controllers/GestorEspecialidad.java
+/home/ffidel/uni/prog2/TPI_prog2 - copia_sin_interfaz/Controllers/GestorMedico.java
+/home/ffidel/uni/prog2/TPI_prog2 - copia_sin_interfaz/Controllers/GestorPaciente.java
+/home/ffidel/uni/prog2/TPI_prog2 - copia_sin_interfaz/Controllers/GestorServicio.java
+/home/ffidel/uni/prog2/TPI_prog2 - copia_sin_interfaz/Controllers/GestorTurnos.java
+/home/ffidel/uni/prog2/TPI_prog2 - copia_sin_interfaz/DAOs/ConexionBD.java
+/home/ffidel/uni/prog2/TPI_prog2 - copia_sin_interfaz/DAOs/EspecialidadDAO.java
+/home/ffidel/uni/prog2/TPI_prog2 - copia_sin_interfaz/DAOs/MedicoDAO.java
+/home/ffidel/uni/prog2/TPI_prog2 - copia_sin_interfaz/DAOs/PacienteDAO.java
+/home/ffidel/uni/prog2/TPI_prog2 - copia_sin_interfaz/DAOs/ServicioDAO.java
+/home/ffidel/uni/prog2/TPI_prog2 - copia_sin_interfaz/DAOs/TurnoDAO.java
+/home/ffidel/uni/prog2/TPI_prog2 - copia_sin_interfaz/Models/Especialidad.java
+/home/ffidel/uni/prog2/TPI_prog2 - copia_sin_interfaz/Models/Estado.java
+/home/ffidel/uni/prog2/TPI_prog2 - copia_sin_interfaz/Models/FranjaHoraria.java
+/home/ffidel/uni/prog2/TPI_prog2 - copia_sin_interfaz/Models/Medico.java
+/home/ffidel/uni/prog2/TPI_prog2 - copia_sin_interfaz/Models/Paciente.java
+/home/ffidel/uni/prog2/TPI_prog2 - copia_sin_interfaz/Models/Persona.java
+/home/ffidel/uni/prog2/TPI_prog2 - copia_sin_interfaz/Models/Servicio.java
+/home/ffidel/uni/prog2/TPI_prog2 - copia_sin_interfaz/Models/Turno.java
+/home/ffidel/uni/prog2/TPI_prog2 - copia_sin_interfaz/Models/TurnoDTO.java
+/home/ffidel/uni/prog2/TPI_prog2 - copia_sin_interfaz/Views/Main.java
+/home/ffidel/uni/prog2/TPI_prog2 - copia_sin_interfaz/Views/VistaEspecialidad.java
+/home/ffidel/uni/prog2/TPI_prog2 - copia_sin_interfaz/Views/VistaGeneral.java
+/home/ffidel/uni/prog2/TPI_prog2 - copia_sin_interfaz/Views/VistaMedico.java
+/home/ffidel/uni/prog2/TPI_prog2 - copia_sin_interfaz/Views/VistaPaciente.java
+/home/ffidel/uni/prog2/TPI_prog2 - copia_sin_interfaz/Views/VistaServicio.java
+/home/ffidel/uni/prog2/TPI_prog2 - copia_sin_interfaz/Views/VistaTurno.java
